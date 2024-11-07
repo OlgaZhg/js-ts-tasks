@@ -13,7 +13,6 @@ module.exports.digitsSum = function digitsSum(n) {
   }
 
   for (let i = 1; i < nString.length; ++i) {
-
     result += nString[i] * 1;
   }
 
