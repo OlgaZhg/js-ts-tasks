@@ -6,8 +6,11 @@
 
 module.exports.digitsSum = function digitsSum(n) {
   let result = 0;
+  /*
   const nAbs = Math.abs(n);
   const nString = nAbs.toString();
+   */
+  const nString = n.toString();
 
   if (nString[0] !== "-") {
     result += nString[0] * 1;
