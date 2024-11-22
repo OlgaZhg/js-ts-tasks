@@ -6,6 +6,7 @@
  */
 module.exports.volumeCone = function volumeCone(h, r) {
   const result = (1 / 3) * (Math.PI * (r ** 2) * h);
-  return result.toFixed(2) * 1;
+  // return result.toFixed(2) * 1;
+  return result.toFixed(2);
 };
 
