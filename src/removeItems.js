@@ -5,34 +5,35 @@
  * @returns {Object}
  */
 module.exports.removeItems = function removeItems(arr, value) {
-  for (let i = 0; i < arr.length; i++) {
-    if (typeof arr[i] !== typeof value) {
-      continue;
-    }
-    if (typeof value === "object") {
-      let arrKeys = Object.keys(arr[i]);
-      let valueKeys = Object.keys(value);
+  for (i = 0; i < arr.length; i++) {
+    if(typeof arr[i] === typeof value) {
 
-      if (arrKeys.length !== valueKeys.length) {
-        continue;
-      } else {
-        let objEqual = true;
-        for (let key of arrKeys) {
-          if (valueKeys.includes(key)) {
-            if (arr[i][key] !== value[key]) {
-              objEqual = false;
-              break;
+      if(typeof arr[i] === 'object') {
+        let arrObjKeys = Object.keys(arr[i]);
+        let valueObjKeys = Object.keys(value);
+
+        if(arrObjKeys.length === valueObjKeys.length) {
+          let equalObj;
+
+          for (let key of arrObjKeys) {
+            if(valueObjKeys.includes(key)) {
+              if(arr[i][key] !== value[key]){
+                equalObj = false;
+                break;
+              }
             }
+            equalObj = true;
+          }
+          if(equalObj === true) {
+            arr.splice(i, 1);
+            i--;
           }
         }
-        if (objEqual) {
-          arr.splice(i, 1);
-          i--;
-        }
       }
-    } else if (arr[i] === value) {
-      arr.splice(i, 1);
-      i--;
+      if(arr[i] === value) {
+        arr.splice(i, 1);
+        i--;
+      }
     }
   }
   return arr;
