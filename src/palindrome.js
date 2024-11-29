@@ -24,6 +24,7 @@ module.exports.palindrome = function palindrome(TestUtils) {
         result += symb;
       }
     }
+
     return TestUtils.isPalindrome.call(result);
   }
 }
