@@ -9,5 +9,21 @@
  * @returns {function}
  */
 module.exports.sort = function sort(TestUtils) {
-  jfkdslgjfdgjklfd;'fjsgklfjgf'
-};
+
+  return function sort(...args) {
+    let temp;
+    const result = [];
+    for (let i = 0; i < arguments.length - 1; i++) {
+      if (TestUtils.sortComparator(arguments[i], arguments[i + 1]) > 0) {
+        temp = arguments[i];
+        arguments[i] = arguments[i + 1];
+        arguments[i + 1] = temp;
+        i = -1;
+      }
+    }
+    for (let i = 0; i < arguments.length; i++) {
+      result.push(arguments[i]);
+    }
+    return result;
+  }
+}
