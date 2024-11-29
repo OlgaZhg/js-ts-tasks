@@ -13,5 +13,17 @@
  * @returns {function}
  */
 module.exports.palindrome = function palindrome(TestUtils) {
-  throw new Error('Not implemented'); // remove this line and create your solution
-};
+
+  return function testPalindrome(text) {
+    let symb;
+    let result = '';
+    const text1 = text.toLowerCase().trim();
+    for (let i = 0; i < text1.length; i++) {
+      symb = text1.charAt(i);
+      if ((symb !== symb.toUpperCase()) || (typeof Number(symb) === 'number')) {
+        result += symb;
+      }
+    }
+    return TestUtils.isPalindrome.call(result);
+  }
+}
