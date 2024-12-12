@@ -8,7 +8,6 @@
  *
  * Note: You MUST call isPalindrome function from TestUtils object
  * Note: DON'T require/import TestUtils from a test/testUtils
- *
  * @param {{ isPalindrome: function() }} TestUtils
  * @returns {function}
  */

@@ -4,7 +4,6 @@
  *
  * Note: You MUST use a function sortComparator from TestUtils object
  * Note: DON'T require/import TestUtils from a test/testUtils
- *
  * @param {{ sortComparator: function() }} TestUtils
  * @returns {function}
  */
