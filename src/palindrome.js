@@ -14,17 +14,17 @@
  */
 module.exports.palindrome = function palindrome(TestUtils) {
 
-  return function testPalindrome(text) {
+  return function Fi (str) {
     let symb;
     let result = '';
-    const text1 = text.toLowerCase().trim();
+    const text1 = str.toLowerCase().trim();
     for (let i = 0; i < text1.length; i++) {
       symb = text1.charAt(i);
-      if ((symb !== symb.toUpperCase()) || (typeof Number(symb) === 'number')) {
+      if (/[a-zA-Z0-9]/.test(symb)) {
         result += symb;
       }
     }
-
-    return TestUtils.isPalindrome.call(result);
+    str = result;
+    return TestUtils.isPalindrome.call({str});
   }
 }
