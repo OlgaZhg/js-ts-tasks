@@ -23,7 +23,6 @@ module.exports.palindrome = function palindrome(TestUtils) {
         result += symb;
       }
     }
-    str = result;
-    return TestUtils.isPalindrome.call({str});
+    return TestUtils.isPalindrome.call({str: result});
   }
 }
