@@ -10,8 +10,8 @@ module.exports.getDaysToNewYear = function getDaysToNewYear(targetDate: Date | s
   } else {
     startDate = targetDate;
   }
-  const newYear = new Date(2026, 0, 1, 0, 0, 0, 0);
+  const newYear = new Date(2024, 0, 1, 0, 0, 0, 0);
   const startDateMs = startDate.getTime();
   const newYearMs = newYear.getTime();
-  return (newYearMs - startDateMs) / (24 * 60 * 60 * 1000);
+  return Math.round((newYearMs - startDateMs) / (24 * 60 * 60 * 1000));
 };

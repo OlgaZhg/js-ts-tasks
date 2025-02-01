@@ -9,15 +9,16 @@ module.exports.converter = function (value: number, from: string, to: string): n
   let result = value;
 
   if (from === 'm' && to === "mi") {
-    result = Number((value / 1609.34).toFixed(2));
+    // result = Math.round((value / 1609.34) * 100) / 100;
+    result = Number((value / 1609.344).toFixed(2));
   }
   if (from === 'mi' && to === "m") {
-    result = Number((value * 1609.34).toFixed(2));
+    result = Number((value * 1609.344).toFixed(2));
   }
-  if (from === 'gr' && to === "p") {
+  if (from === 'gr' && to === "pound") {
     result = Number((value / 453.592).toFixed(2));
   }
-  if (from === 'p' && to === "gr") {
+  if (from === 'pound' && to === "gr") {
     result = Number((value * 453.592).toFixed(2));
   }
   if (from === 'C' && to === "K") {
