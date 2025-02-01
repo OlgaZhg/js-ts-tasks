@@ -6,5 +6,32 @@
  * @returns {boolean}
  */
 module.exports.pangram = function (word: string | number): boolean {
-  throw new Error('Not implemented'); // delete this line and write your code
+  let result = false;
+  if (typeof word === "number") {
+    const newString = word.toString();
+    let flag = 0;
+    let currentSymbol: string;
+    for (let i = 0; i < 10; i += 1) {
+      currentSymbol = i.toString();
+      if (newString.indexOf(currentSymbol) < 0) {
+        flag = -1;
+      }
+    }
+    if (flag === 0) {
+      result = true;
+    }
+  }
+  const newString: string = word.toString();
+  let flag = 0;
+  let currentSymbol: string;
+  for (let i = 97; i <= 122; i += 1) {
+    currentSymbol = String.fromCharCode(i);
+    if (newString.indexOf(currentSymbol) < 0) {
+      flag = -1;
+    }
+  }
+  if (flag === 0) {
+    result = true;
+  }
+  return result;
 };

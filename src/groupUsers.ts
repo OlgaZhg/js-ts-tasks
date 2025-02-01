@@ -9,7 +9,20 @@
  * @param {Array<unknown>} users
  * @returns {Object<employees: Array<any>, contractors: Array<any>>}
  */
-module.exports.groupUsers = function (users: Array<unknown>): Record<'employees' | 'contractors', Array<unknown>> {
-  // replace Array<unknown> with your own types
-  throw new Error('Not implemented'); // delete this line and write your code
-};
+
+type UserObj = {
+  [key: string]: string | number | Record<string, string | number>
+}
+
+module.exports.groupUsers = function (users: Array<UserObj>): Record<'employees' | 'contractors', Array<UserObj>> {
+  const employeesArr: UserObj[] = users.filter((user: UserObj) =>
+    user['type' as string] === 'EMPLOYEE');
+
+  const contractorsArr: UserObj[] = users.filter((user: UserObj) =>
+    user['type' as string] === 'CONTRACTOR');
+
+  const resultObj: {employees: UserObj[], contractors: UserObj[]} = { employees : [], contractors: [] };
+  resultObj.employees = employeesArr;
+  resultObj.contractors = contractorsArr;
+  return resultObj;
+}
